@@ -1,0 +1,5 @@
+const toggle=document.querySelector('.menu-toggle');const nav=document.querySelector('.nav');if(toggle){toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',open?'true':'false')})}
+document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>nav&&nav.classList.remove('open')));
+document.getElementById('year')&&(document.getElementById('year').textContent=new Date().getFullYear());
+const io=new IntersectionObserver((entries)=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.08});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const form=document.querySelector('[data-contact-form]');if(form){form.addEventListener('submit',e=>{e.preventDefault();const data=new FormData(form);const name=data.get('name')||'';const company=data.get('company')||'';const need=data.get('need')||'';const message=data.get('message')||'';const text=`Hi Maxim, I'm ${name}${company?' from '+company:''}. I'm interested in ${need}. ${message}`;window.open('https://wa.me/27615047509?text='+encodeURIComponent(text),'_blank','noopener')})}
